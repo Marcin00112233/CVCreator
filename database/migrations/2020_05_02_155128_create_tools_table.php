@@ -16,10 +16,10 @@ class CreateToolsTable extends Migration
         Schema::create('tools', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->integer('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->string('tool', 100);
             $table->boolean('status');
-            
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

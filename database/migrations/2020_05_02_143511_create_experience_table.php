@@ -16,11 +16,12 @@ class CreateExperienceTable extends Migration
         Schema::create('experience', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->integer('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->string('date', 20);
             $table->string('companyname', 100);
             $table->text('termsofreference');
             $table->boolean('status');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

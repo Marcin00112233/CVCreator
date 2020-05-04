@@ -16,13 +16,14 @@ class CreatePersonaldataTable extends Migration
         Schema::create('personaldata', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->integer('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->string('birthdate', 20);
             $table->string('maritalstatus', 20);
             $table->string('placeofresidence', 20);
             $table->string('phone', 20);
             $table->string('mail',255);
             $table->boolean('status');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

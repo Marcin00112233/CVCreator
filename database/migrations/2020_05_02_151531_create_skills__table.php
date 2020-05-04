@@ -16,10 +16,11 @@ class CreateSkillsTable extends Migration
         Schema::create('skills', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->integer('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->string('technologies', 100);
             $table->string('level', 100);
             $table->boolean('status');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

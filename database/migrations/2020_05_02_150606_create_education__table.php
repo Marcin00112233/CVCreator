@@ -16,10 +16,11 @@ class CreateEducationTable extends Migration
         Schema::create('education', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->integer('useer_id');
+            $table->unsignedBigInteger('user_id');
             $table->string('data', 20);
             $table->string('school');
             $table->boolean('status');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

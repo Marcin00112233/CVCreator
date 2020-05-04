@@ -16,9 +16,10 @@ class CreateAboutmeTable extends Migration
         Schema::create('aboutme', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->integer('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->text('information');
             $table->boolean('status');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
