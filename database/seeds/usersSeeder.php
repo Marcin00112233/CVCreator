@@ -2,6 +2,9 @@
 
 use Illuminate\Database\Seeder;
 
+
+
+
 class usersSeeder extends Seeder
 {
     /**
@@ -12,5 +15,13 @@ class usersSeeder extends Seeder
     public function run()
     {
         //
+        include 'baza.php';
+        DB::table('users')->insert([
+            'login' => $user['login'],
+            'name' => $user['name'],
+            'email' => $user['email'],
+            'password' => $user['password'],
+        ]);
     }
 }
+  
