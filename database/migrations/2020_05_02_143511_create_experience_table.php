@@ -19,6 +19,7 @@ class CreateExperienceTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('date', 20);
             $table->string('companyname', 100);
+            $table->string('job');
             $table->text('termsofreference');
             $table->boolean('status');
             $table->foreign('user_id')->references('id')->on('users');

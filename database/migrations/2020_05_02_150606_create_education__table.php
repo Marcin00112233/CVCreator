@@ -19,6 +19,7 @@ class CreateEducationTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('data', 20);
             $table->string('school');
+            $table->string('profession');
             $table->boolean('status');
             $table->foreign('user_id')->references('id')->on('users');
         });
