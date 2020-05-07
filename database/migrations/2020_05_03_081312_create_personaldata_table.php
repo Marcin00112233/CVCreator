@@ -17,12 +17,8 @@ class CreatePersonaldataTable extends Migration
             $table->id();
             $table->timestamps();
             $table->unsignedBigInteger('user_id');
-            $table->string('birthdate', 20);
-            $table->string('maritalstatus', 20);
-            $table->string('placeofresidence', 20);
-            $table->string('phone', 20);
-            $table->string('mail',255);
-            $table->boolean('status');
+            $table->string('dataname', 20);
+            $table->string('data', 255);
             $table->foreign('user_id')->references('id')->on('users');
         });
     }
