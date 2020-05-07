@@ -18,6 +18,7 @@ class CreateToolsTable extends Migration
             $table->timestamps();
             $table->unsignedBigInteger('user_id');
             $table->string('tool', 100);
+            $table->string('level', 255);
             $table->boolean('status');
             $table->foreign('user_id')->references('id')->on('users');
         });
