@@ -16,7 +16,7 @@ class CreateCvTable extends Migration
         Schema::create('cv', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $tables = ['users','experience','education','projects','skills','extraskills','tools','courses','extrainformations','consent','aboutme','job','personaldata'];
+            $tables = ['users','experience','education','projects','skills','extraskills','tools','extratools','courses','extrainformations','consent','aboutme','job','personaldata'];
             foreach($tables as $value){
                 $table->unsignedBigInteger($value . '_id');
             }
