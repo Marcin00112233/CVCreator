@@ -18,10 +18,11 @@ class CreateCvTable extends Migration
             $table->timestamps();
             $tables = ['users','experience','education','projects','skills','extraskills','tools','extratools','courses','extrainformations','consent','aboutme','job','personaldata'];
             foreach($tables as $value){
+                if($value == 'extraskills' || $value == 'extratools') $table->boolean($value);
                 $table->unsignedBigInteger($value . '_id');
             }
             foreach($tables as $value){
-                $table->foreign($value. '_id')->references('id')->on($value);
+                if($value != 'extraskills' && $value != 'extratools') $table->foreign($value. '_id')->references('id')->on($value);
             }
 
         });
